@@ -1,15 +1,15 @@
-#starting position
+# starting position
 pos = 1
 
 while True:
   roll = int(input())
 
-  #ending game if roll = 0
+  # end game if roll = 0
   if roll == 0:
     print('You Quit!')
     break
 
-  #allowing roll addition when it doesn't exceed 100
+  # limit roll addition if sum exceeds 100
   if pos + roll <= 100:
     pos += roll
     
@@ -29,5 +29,4 @@ while True:
     elif pos == 90: pos = 48;
     elif pos == 99: pos = 78;
 
-  #printing the values
   print("You are now on square", pos)
