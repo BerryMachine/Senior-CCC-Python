@@ -1,0 +1,32 @@
+#taking the input
+a = int(input())
+
+for i in range(a):
+  #converting to character list
+  x = [*input()]
+  
+  #removing hypens until one left
+  while True: 
+    if "-" in x:
+      x.remove("-")
+    else: break
+
+  #replacing letters
+  for i in range(len(x)):
+    if x[i] in ["A", "B", "C"]: x[i] = "2"
+    if x[i] in ["D", 'E', 'F']: x[i] = "3"
+    if x[i] in ["G", "H", "I"]: x[i] = "4"
+    if x[i] in ["J", "K", "L"]: x[i] = "5"
+    if x[i] in ["M", "N", "O"]: x[i] = "6"
+    if x[i] in ["P", "Q", "R", "S"]: x[i] = "7"
+    if x[i] in ["T", "U", "V"]: x[i] = "8"
+    if x[i] in ["W", "X", "Y", "Z"]: x[i] = "9"
+
+
+  #adding hyphens
+  x.insert(3, "-")
+  x.insert(7, "-")
+
+
+  # slicing the list based on the required 10 numbers including hyphens
+  print(''.join(x[0: 12]))
