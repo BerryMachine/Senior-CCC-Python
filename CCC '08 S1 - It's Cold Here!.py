@@ -9,10 +9,10 @@ while True:
   # store name and temperature of lowest temperature city
   if int(city[1]) < temp:
     temp = int(city[1])
-    name = value[0]
+    name = city[0]
 
   # break when user enters "Waterloo"
-  if value[0] == "Waterloo":
+  if city[0] == "Waterloo":
     break
 
 print(name)
