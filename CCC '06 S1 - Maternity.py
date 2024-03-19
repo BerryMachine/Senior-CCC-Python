@@ -1,34 +1,28 @@
-#parent genetic
+# get parent alleles as input
 B = input()
-# disecting the list into 5 parts
-B = [B[i:i+2] for i in range(0, 10, 2)]
-#parent genetic
 A = input()
-# disecting the list into 5 parts
-A = [A[i:i+2] for i in range(0, 10, 2)]
+# get number of test cases as input
+X = int(input())
 
-#number of children values to compare
-X = input()
+# find all possible traits of baby
+possible_traits = [[], [], [], [], []]
 
-#list of letters
-letter_list = ["a", "b", "c", "d", "e"]
+# check each pair in B and A
+for i in range(0, 10, 2):
+  # if there are any uppercase letters, the attribute of the dominant allele is possible
+  if not B[i:i+2].islower() or not A[i:i+2].islower():
+    possible_traits[i//2].append(True)
 
-dict = {"a": [], "b": [], "c": [], "d": [], 'e': []}
+  # if there are lowercase letters in both alleles, the attribute of the recessive allele is possible
+  if not B[i:i+2].isupper() and not A[i:i+2].isupper():
+    possible_traits[i//2].append(False)
 
-# if Capital in atleast one list capital is possibility, and lower in both lists
-# lower is possibility
-for i in range(len(letter_list)):
-  if letter_list[i].upper() in [*B[i]] or letter_list[i].upper() in [*A[i]]:
-    dict[letter_list[i]].append(letter_list[i].upper())
-  if letter_list[i] in [*B[i]] and letter_list[i] in [*A[i]]:
-    dict[letter_list[i]].append(letter_list[i])
-
-#Checking dict list to check is possibility is correct and printing values
-for i in range(int(X)):
-  thing = [*input()]
-  if thing[0] not in dict["a"]: print("Not their baby!")
-  elif thing[1] not in dict["b"]: print("Not their baby!")
-  elif thing[2] not in dict["c"]: print("Not their baby!")
-  elif thing[3] not in dict["d"]: print("Not their baby!")
-  elif thing[4] not in dict["e"]: print("Not their baby!")
+# if all traits of baby are possible, print "Possible baby."
+for j in range(X):
+  baby = input()
+  if baby[0].isupper() not in possible_traits[0]: print("Not their baby!")
+  elif baby[1].isupper() not in possible_traits[1]: print("Not their baby!")
+  elif baby[2].isupper() not in possible_traits[2]: print("Not their baby!")
+  elif baby[3].isupper() not in possible_traits[3]: print("Not their baby!")
+  elif baby[4].isupper() not in possible_traits[4]: print("Not their baby!")
   else: print("Possible baby.")
