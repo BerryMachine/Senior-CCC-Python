@@ -16,15 +16,15 @@ for letter in first_word:
     dict_A[letter] += 1
 
 for letter in second_word: 
-    dict_B[letter] += 1
+    if letter != "*":
+        dict_B[letter] += 1
 
-if len(first_word) == len(second_word):
-    for char in dict_A:
-        if dict_A[char] != dict_B[char]:
-            ans = "N"
-            break
+if dict_A == dict_B:
+    ans = "A"
 else: ans = "N"
 
 print(ans)
+
+
 
 
