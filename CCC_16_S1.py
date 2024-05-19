@@ -1,34 +1,13 @@
-#import string library
-import string
+from collections import Counter
 
-#input the word
-word1 = [*input()]
-word2 = [*input()]
+# store the count of each letter using Counter module
+S = Counter(input())
+W = Counter(input())
 
-#initialize dictionaries
-dicta = {}
-dictb = {}
+# question states both words have same amount of characters
+# thus its not possible for the amount of a certain letter in the wildcard word to be greater than the original string: 
+ans = "A"
+for value in S:
+	if W[value] > S[value]: ans = "N"; break
 
-#initialize ans variable
-ans = "N"
-
-#create dictionaries with lowercase alphabet keys
-for char in string.ascii_lowercase:
-	dicta[char] = 0
-	dictb[char] = 0
-
-#add number values to the keys
-for letter in word1:
-	dicta[letter] += 1
-  
-#add number values to the keys
-for letter in word2:
-	if letter != "*": dictb[letter] += 1
-
-#determine if anagram is possible by checking if dictb values are less than  or equal dicta
-for value in dicta:
-	if dictb[value] <= dicta[value]: ans = "A"
-	else: ans = "N"; break
-
-#printing answer
 print(ans)
