@@ -1,11 +1,13 @@
-import string
+from collections import Counter
 
-first_word = [*input()]
-second_word = [*input()]
+is_wildcard = True
+S = Counter(input())
+W = Counter(input())
 
-dict_A = {}
-dict_B = {}
+print(S)
+print(W)
 
+<<<<<<< HEAD
 ans = "A"
 
 for char in string.ascii_lowercase:
@@ -32,3 +34,33 @@ if len(first_word) == len(second_word):
     if counter == 26: print("A")
 else: print("N")
 
+=======
+for i in W:
+  print(i)
+  if i != "*":
+    if W[i] < S[i]:
+      print("what the monkey")
+      diff = W[i] - S[i]
+      
+      try:
+        if W["*"] >= diff:
+          print("wHatat")
+          W["*"] -= diff
+        else:
+          is_wildcard = False
+          print("N")
+          break
+          
+      except KeyError:
+        is_wildcard = False
+        print("N")
+        break
+
+    elif W[i] > S[i]:
+      is_wildcard = False
+      print("N")
+      break
+
+if is_wildcard:
+  print("A")
+>>>>>>> 4589d9c42436ffb084db36a47a2c655b85bea1fc
