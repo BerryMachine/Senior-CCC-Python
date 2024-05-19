@@ -1,33 +1,34 @@
-from collections import Counter
+#import string library
+import string
 
-is_wildcard = True
-S = Counter(input())
-W = Counter(input())
+#input the word
+word1 = [*input()]
+word2 = [*input()]
 
+#initialize dictionaries
+dicta = {}
+dictb = {}
 
-for i in W:
+#initialize ans variable
+ans = "N"
 
-  if i != "*":
-    if W[i] > S[i]:
-      is_wildcard = False
-      print("N")
-      break
-      
-    elif W[i] < S[i]:
-      diff = S[i] - W[i]
-      
-      try:
-        if W["*"] >= diff:
-          W["*"] -= diff
-        else:
-          is_wildcard = False
-          print("N")
-          break
-          
-      except KeyError:
-        is_wildcard = False
-        print("N")
-        break
+#create dictionaries with lowercase alphabet keys
+for char in string.ascii_lowercase:
+	dicta[char] = 0
+	dictb[char] = 0
 
-if is_wildcard:
-  print("A")
+#add number values to the keys
+for letter in word1:
+	dicta[letter] += 1
+  
+#add number values to the keys
+for letter in word2:
+	if letter != "*": dictb[letter] += 1
+
+#determine if anagram is possible by checking if dictb values are less than  or equal dicta
+for value in dicta:
+	if dictb[value] <= dicta[value]: ans = "A"
+	else: ans = "N"; break
+
+#printing answer
+print(ans)
