@@ -1,31 +1,25 @@
-#take all input required
-k = int(input())
+# get number of friends and rounds as input
+K = int(input())
 m = int(input())
 
-list = []
+# create a list of friends from 1 to K
+prev_list = []
+updated_list = [friend for friend in range(1,K+1)]
 
-#add initial values into to the list
-for i in range(1,k+1):
-  list.append(i)
-
-#run as many times as the value of m
+# iterate through the rounds
 for i in range(m):
-  num = int(input())
-  counter = 0
+  # set updated_list to empty list
+  prev_list = updated_list
+  updated_list = []
 
-  #uses the for loop values to determine numbers at certain intervals
-  for value in range(num, len(list)+1, num):
-    #sets the values to be removed to zero
-    list[value-1] = 0
-    counter += 1
+  # get interval for removal as input
+  r = int(input())
 
-  #remove all the zeros from the list
-  for i in range(counter):
-    list.remove(0)
+  # iterate through the list and omit every rth element
+  for j in range(len(prev_list)):
+    if (j+1) % r != 0:
+      updated_list.append(prev_list[j])
 
-#sort the list from least to greatest
-list.sort()
-
-#print out all the values in the list
-for thing in list:
-  print(thing)
+# print the remaining friends
+for i in updated_list:
+  print(i)
