@@ -4,6 +4,9 @@ from collections import Counter
 S = Counter(input())
 W = Counter(input())
 
+# omit asterisks
+del W["*"]
+
 # question states both words have same amount of characters
 # thus its not possible for the amount of a certain letter in the wildcard word to be greater than the original string: 
 ans = "A"
