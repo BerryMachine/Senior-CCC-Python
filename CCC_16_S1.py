@@ -6,7 +6,7 @@ second_word = [*input()]
 dict_A = {}
 dict_B = {}
 
-counter = 0
+ans = "A"
 
 for char in string.ascii_lowercase:
     dict_A[char] = 0
@@ -21,11 +21,10 @@ for letter in second_word:
 if len(first_word) == len(second_word):
     for char in dict_A:
         if dict_A[char] != dict_B[char]:
-            print("N")
+            ans = "N"
             break
-            
-        else: counter += 1
+else: ans = "N"
 
-    if counter == 26: print("A")
-else: print("N")
+print(ans)
+
 
