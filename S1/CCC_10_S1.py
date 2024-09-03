@@ -17,7 +17,7 @@ for n in range(int(input())):
 
     # if score is equal to first...
     elif P == first[1]:
-      # Find lexicographically smallest name between first and current and set as first. Replace the second with the other.
+      # find lexicographically smallest name between first and current and set as first. Replace the second with the other.
       if name == min(name, first[0]):
         second = first
         first = [name, P]
