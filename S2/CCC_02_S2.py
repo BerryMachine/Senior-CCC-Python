@@ -4,10 +4,10 @@ import math
 numerator = int(input())
 denominator = int(input())
 
-# calculate remainder after division
+# calculate remainder
 rem = numerator % denominator
 
-# if fraction is integer, output integer
+# output if integer
 if rem == 0:
   print(numerator // denominator)
   
@@ -17,8 +17,8 @@ else:
 
   # if fraction < 1, output reduced fraction
   if rem == numerator:
-    print(numerator//gcd, "/", denominator//gcd, sep="")
+    print(f"{numerator//gcd}/{denominator//gcd}")
     
   # if fraction > 1, output reduced mixed fraction
   else:
-    print(numerator // denominator, " ", rem//gcd, "/", denominator//gcd, sep="")
+    print(f"{numerator//denominator} {rem//gcd}/{denominator//gcd}")
