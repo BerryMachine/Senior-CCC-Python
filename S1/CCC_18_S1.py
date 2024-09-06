@@ -1,36 +1,30 @@
-from math import *
-n = int(input())
+# number of villages
+N = int(input())
 
 # villages coordinate list
-vils = []
+V = []
+for i in range(N):
+  V.append(int(input()))
 
-# populations of the villages list
-pops = []
+# sort villages' coordinates ascending
+V.sort()
 
-# add values into the villages list from input
-for vek in range(n):
-  vil = int(input())
-  vils.append(vil)
-
-# sort village coordinates to resemble numberline
-vils = sorted(vils)
+# keep track of smallest village size
+min_size = -1
 
 # A is the city before B
 # B is the city in question
 # C is the city after B
 # **note**: we can disregard the first and last city in the village list 
 for i in range(1, len(vils)-1):
-  A = (vils)[i-1]
-  B = (vils)[i]
-  C = (vils)[i+1]
+  A = V[i-1]
+  B = V[i]
+  C = V[i+1]
 
-  # use the difference of the values to get population
-  pop = abs(B - A)/2 + abs(C-B)/2
+  # determine size of village
+  size = (B - A)/2 + (C - B)/2
+  # determine whether it is the smallest thus far
+  if vil_size < min_size or min_size == -1:
+        min_size = vil_size
 
-  # add to the population list
-  pops.append(pop)
-
-# output the sorted version fo pops, the smallest value
-print(float(sorted(pops)[0]))
- 
-
+print(min_size)
