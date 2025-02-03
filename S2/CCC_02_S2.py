@@ -22,3 +22,4 @@ else:
   # if fraction > 1, output reduced mixed fraction
   else:
     print(f"{numerator//denominator} {rem//gcd}/{denominator//gcd}")
+#jlkdfjlakdjf
